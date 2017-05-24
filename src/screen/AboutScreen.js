@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet,View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 /**
  * FlexView
@@ -17,6 +17,7 @@ class FlexView extends Component {
 }
 
 class AboutScreen extends Component {
+
     render() {
         return (
             <View style={{alignItems: 'center', justifyContent: "flex-end"}}>

@@ -16,6 +16,7 @@ class Greeting extends Component {
 }
 
 class ProfileScreen extends Component {
+
     render() {
         return (
             <View style={{alignItems: 'center', justifyContent: "flex-end"}}>
