@@ -30,12 +30,15 @@ const styles = StyleSheet.create({
  }
  }*/
 
+/**
+ * Pure Component
+ */
 const Greeting = props => (
   <Text style={props.style}>Hello {props.name}</Text>
 );
 
 Greeting.propTypes = {
-  style: PropTypes.string.isRequired,
+  style: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
 };
 // Greeting.defaultProps = {title: 'stateless component'}

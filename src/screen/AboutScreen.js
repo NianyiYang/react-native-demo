@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 const styles = StyleSheet.create({
   blueFlexRect: {
     flex: 1,
-    backgroundColor: 'skyblue',
+    backgroundColor: 'blue',
   },
   greenFlexRect: {
     flex: 1,

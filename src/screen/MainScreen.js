@@ -1,5 +1,18 @@
 import React, {Component} from 'react';
-import {View, Text, ListView, ScrollView, Button} from 'react-native';
+import {View, Text, ListView, ScrollView, Button, TouchableOpacity, Image, StyleSheet} from 'react-native';
+
+const styles = StyleSheet.create({
+    row: {
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        padding: 10,
+        backgroundColor: '#F6F6F6',
+    },
+    thumb: {
+        width: 50,
+        height: 50,
+    },
+});
 
 /**
  * ListView
@@ -15,20 +28,59 @@ class List extends Component {
 
         this.state = {
             dataSource: dataSource.cloneWithRows([
-                '陶宏飞', '周志忠', '舒韵', '宋肖俊', '杨念一'
+                {
+                    name: '陶宏飞',
+                    desc: '无力滔滔'
+                }, {
+                    name: '周志忠',
+                    desc: '123'
+                }, {
+                    name: '舒韵',
+                    desc: '3214'
+                }, {
+                    name: '宋肖俊',
+                    desc: '5234'
+                }, {
+                    name: '杨念一',
+                    desc: '3568'
+                }
             ])
         };
+    }
+
+    renderRow = (item, index) => {
+
+        let pic = {
+            uri: "https://i1.hoopchina.com.cn/blogfile/201705/18/BbsImg149509482112629_614x887.jpg?x-oss-process=image/resize,w_800/format,webp"
+        };
+
+        return (
+            <TouchableOpacity>
+                <View style={styles.row}>
+                    <Image
+                        source={pic} style={styles.thumb}/>
+                    <View style={{flexDirection: 'column'}}>
+                        <Text style={{flex: 1, fontSize: 16, color: 'blue'}}>
+                            {item.name}
+                        </Text>
+                        <Text>
+                            {item.desc}
+                        </Text>
+                    </View>
+
+                </View>
+            </TouchableOpacity>
+        );
     }
 
     render() {
         return (
             <View style={{flex: 1}}>
                 <ListView dataSource={this.state.dataSource}
-                          renderRow={(rowData) => <Text>{rowData}</Text>}/>
+                          renderRow={this.renderRow}/>
             </View>
         );
     }
-
 }
 
 class MainScreen extends Component {
