@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {View, Text, ListView, TouchableOpacity, Image, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -27,8 +27,9 @@ class DemoList extends Component {
         });
 
         this.state = {
-            dataSource: dataSource.cloneWithRows(props.items)
+            data: dataSource.cloneWithRows(props.items)
         };
+
     }
 
     renderRow = (item, i) => {
@@ -54,20 +55,19 @@ class DemoList extends Component {
                 </View>
             </TouchableOpacity>
         );
-    }
+    };
 
     render() {
+
+        console.log(this.state.data);
+
         return (
             <View style={{flex: 1}}>
-                <ListView dataSource={this.state.dataSource}
+                <ListView dataSource={this.state.data}
                           renderRow={this.renderRow}/>
             </View>
         );
     }
 }
-
-DemoList.propTypes = {
-    items: PropTypes.array.isRequired,
-};
 
 export default DemoList;
